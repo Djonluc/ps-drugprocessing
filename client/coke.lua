@@ -163,7 +163,7 @@ local function SpawnCocaPlants()
                 }
             },
             distance = 2.0
-        }) -- update to ox_target support
+        })
     end
 end
 

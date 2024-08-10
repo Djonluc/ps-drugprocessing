@@ -192,6 +192,38 @@ local function ExitMethlab()
     DoScreenFadeIn(250)
 end
 
+
+-- Event handler for entering the meth lab
+RegisterNetEvent('ps-drugprocessing:EnterMethlab', function()
+    local ped = PlayerPedId()
+    local pos = GetEntityCoords(ped)
+    local dist = #(pos - vector3(Config.MethLab["enter"].coords.x, Config.MethLab["enter"].coords.y, Config.MethLab["enter"].coords.z))
+    if dist < 2 then
+        if Config.KeyRequired then
+            QBCore.Functions.TriggerCallback('ps-drugprocessing:validate_items', function(result)
+                if result.ret then
+                    EnterMethlab()
+                else
+                    QBCore.Functions.Notify(Lang:t("error.no_item", {item = result.item}))
+                end
+            end, { methkey = 1 } )
+        else
+            EnterMethlab()
+        end
+    end
+end)
+
+-- Event handler for exiting the meth lab
+RegisterNetEvent('ps-drugprocessing:ExitMethlab', function()
+    local ped = PlayerPedId()
+    local pos = GetEntityCoords(ped)
+    local dist = #(pos - vector3(Config.MethLab["exit"].coords.x, Config.MethLab["exit"].coords.y, Config.MethLab["exit"].coords.z))
+    if dist < 2 then
+        ExitMethlab()
+    end
+end)
+
+
 -- Register targets for interaction
 CreateThread(function()
     -- Meth Processing Zone
@@ -208,7 +240,7 @@ CreateThread(function()
             }
         },
         distance = 2.0
-    }) -- update to ox_target support
+    })
 
     -- Temp Up Zone
     exports['ox_target']:AddCircleZone("tempUpZone", Config.CircleZones.MethTemp.coords, 2.0, {
@@ -224,7 +256,7 @@ CreateThread(function()
             }
         },
         distance = 2.0
-    }) -- update to ox_target support
+    })
 
     -- Temp Down Zone
     exports['ox_target']:AddCircleZone("tempDownZone", Config.CircleZones.MethTemp.coords, 2.0, {
@@ -240,7 +272,7 @@ CreateThread(function()
             }
         },
         distance = 2.0
-    }) -- update to ox_target support
+    })
 
     -- Bagging Zone
     exports['ox_target']:AddCircleZone("baggingZone", Config.CircleZones.MethBag.coords, 2.0, {
@@ -256,7 +288,7 @@ CreateThread(function()
             }
         },
         distance = 2.0
-    }) -- update to ox_target support
+    })
 end)
 
 -- Register events
