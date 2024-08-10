@@ -124,7 +124,7 @@ CreateThread(function()
                 end
             }
         }
-    })
+    }) -- update to ox_target support
 
     -- Thionyl Chloride Processing Zone
     exports['ox_target']:addBoxZone({
@@ -142,5 +142,5 @@ CreateThread(function()
                 end
             }
         }
-    })
+    }) -- update to ox_target support
 end)

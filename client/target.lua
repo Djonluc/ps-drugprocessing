@@ -21,7 +21,7 @@ CreateThread(function()
                 label = label,
                 type = "client",
             }
-        })
+        }) -- update to ox_target support
     end
 
     spawnPed(`a_m_m_hillbilly_02`, vector4(-1187.73, -445.27, 43.91, 289.45), "ps-drugprocessing:EnterLab", "fas fa-atom", Lang:t("target.talk_to_walter"))
@@ -45,7 +45,7 @@ CreateThread(function()
                     type = "client",
                 },
             },
-        })
+        }) -- update to ox_target support
     end
 
     addBoxZone("chemmenu", vector3(3535.66, 3661.69, 28.12), 1.65, 2.4, 350.0, "ps-drugprocessing:chemicalmenu", "fas fa-vials", Lang:t("target.chemmenu"), 27.52, 29.12)
@@ -74,7 +74,7 @@ CreateThread(function()
                 label = label,
                 type = "client",
             }
-        })
+        }) -- update to ox_target support
     end
 
     addTargetModel(`h4_prop_bush_cocaplant_01`, "ps-drugprocessing:pickCocaLeaves", "fas fa-leaf", Lang:t("target.pickCocaLeaves"))

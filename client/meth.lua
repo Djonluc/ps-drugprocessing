@@ -208,7 +208,7 @@ CreateThread(function()
             }
         },
         distance = 2.0
-    })
+    }) -- update to ox_target support
 
     -- Temp Up Zone
     exports['ox_target']:AddCircleZone("tempUpZone", Config.CircleZones.MethTemp.coords, 2.0, {
@@ -224,7 +224,7 @@ CreateThread(function()
             }
         },
         distance = 2.0
-    })
+    }) -- update to ox_target support
 
     -- Temp Down Zone
     exports['ox_target']:AddCircleZone("tempDownZone", Config.CircleZones.MethTemp.coords, 2.0, {
@@ -240,7 +240,7 @@ CreateThread(function()
             }
         },
         distance = 2.0
-    })
+    }) -- update to ox_target support
 
     -- Bagging Zone
     exports['ox_target']:AddCircleZone("baggingZone", Config.CircleZones.MethBag.coords, 2.0, {
@@ -256,7 +256,7 @@ CreateThread(function()
             }
         },
         distance = 2.0
-    })
+    }) -- update to ox_target support
 end)
 
 -- Register events

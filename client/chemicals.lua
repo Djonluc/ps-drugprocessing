@@ -126,7 +126,7 @@ local function SpawnChemicals()
 
     -- Register targets for chemicals with ox_target 
     for _, chem in ipairs(Chemicals) do
-        exports['ox_target']:addLocalEntity(chem, { -- fix target 
+        exports['ox_target']:addLocalEntity(chem, { -- update to target
             {
                 name = 'pickChemicals',
                 icon = 'fas fa-cogs',
@@ -135,7 +135,7 @@ local function SpawnChemicals()
                     TriggerEvent('ps-drugprocessing:pickChemicals')
                 end
             }
-        })
+        }) -- update to ox_target support
     end
 end
 
@@ -261,7 +261,7 @@ CreateThread(function()
     local chemZone = CircleZone:Create(Config.CircleZones.ChemicalsField.coords, 50.0, {
         name = "ps-chemzone",
         debugPoly = false
-    })
+    }) -- update to ox_target support
     chemZone:onPlayerInOut(function(isPointInside, point, zone)
         if isPointInside then
             inChemicalField = true

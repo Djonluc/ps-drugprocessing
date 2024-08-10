@@ -80,7 +80,7 @@ local function SpawnSulfuricAcidBarrels()
                     label = Lang:t("target.pickSulfuric"),
                     type = "client"
                 }
-            })
+            }) -- update to ox_target support
         end
     end
 

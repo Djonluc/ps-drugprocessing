@@ -79,7 +79,7 @@ local function SpawnSodiumHydroxideBarrels()
                     label = Lang:t("target.pickSodium"),
                     type = "client"
                 }
-            })
+            }) -- update to ox_target support
         end
     end
 

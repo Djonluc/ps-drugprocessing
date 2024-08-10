@@ -80,7 +80,7 @@ local function SpawnHydrochloricAcidBarrels()
 				label = Lang:t("target.hydrochloricacid"),
 				type = "client"
 			}
-		})
+		}) -- update to ox_target support
 	end
 	SetModelAsNoLongerNeeded(model)
 end
